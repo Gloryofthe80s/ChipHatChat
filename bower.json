@@ -1,0 +1,10 @@
+{
+  "name": "chiphatapp",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.10.2",
+    "backbone": "~1.1.1"
+  },
+  "devDependencies": {}
+}
