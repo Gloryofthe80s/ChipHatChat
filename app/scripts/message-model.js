@@ -3,11 +3,11 @@ var Message = Backbone.Model.extend({
     idAttribute: "_id",
 
     defaults: {
-    username: $('#username-inpupt').val(),
+    username: '-default name-',
     messageText: '-default message-',
-    messageDate: _.now,
-    appId: 'ChipHatApp'
-    options: '' //optional additional parameters
+    messageDate: '-unknown-',
+    appId: 'ChipHatApp',
+    options: { } //optional additional parameters
 
     }
 });
@@ -15,7 +15,7 @@ var Message = Backbone.Model.extend({
 var MessagesCollection = Backbone.Collection.extend({
     model: Message,
 
-    url: 'http://tiny-pizza-server.herokuapp.com'
+    url: 'http://tiny-pizza-server.herokuapp.com/collections/messages'
     // /collections/messages is the directory on server
 
     // to see all messages on the server, you can run the following in console:

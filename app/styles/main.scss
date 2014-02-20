@@ -33,7 +33,7 @@ body {
     height: 60px;
 }
 
-.my-profile {
+.username-input {
     width: 330px;
     height: 30px;
     font-size: 22px;
@@ -41,7 +41,7 @@ body {
     border-radius: 4px;
 }
 
-.submit {
+.submit-username {
     width: 80px;
     height: 30px;
     border-radius: 4px;
@@ -74,7 +74,7 @@ body {
 
 .hidden-welcome {
    position: absolute;
-   right: 380px;    
+   right: 320px;    
 }
 
 .enter-message-container {
@@ -91,12 +91,10 @@ body {
 }
 
 .message-wrapper {
-    width: 500px;
-    height: 80px;
-    margin: 0 auto;
-    margin-top: 10px;
+    margin: 10px;
     background-color: rgb(219, 212, 212);
     border-radius: 4px;
+    padding: 8px;
 }
 
 
