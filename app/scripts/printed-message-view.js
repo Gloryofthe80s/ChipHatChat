@@ -1,6 +1,6 @@
 var PrintedMessage = Backbone.View.extend({
     tagName: 'div',
-    className: 'printed-message'
+    className: 'printed-message',
 
     createTemplate: _.template($('#printed-message-template').text()),
 
@@ -9,7 +9,7 @@ var PrintedMessage = Backbone.View.extend({
     },
 
     initialize: function(){
-        $('.printed-messages-container').append( this.el ); //get the empty tag into the DOM
+        $('.main-view').append( this.el ); //get the empty tag into the DOM
 
         this.render();
 

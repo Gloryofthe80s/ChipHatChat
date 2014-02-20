@@ -28,25 +28,19 @@
         <div class="header-container">
         <div class="header">ChipHat App</div>
         <div class="credits">created by Jacob Wielgus and Matt Hartley</div>
-        <div class="hidden-welcome">Welcome, </div>
+        <div class="hidden-welcome"></div>
         </div>
 
         <div class="addUser">
-        <input class="my-profile" placeholder="Enter User Name...">
-        <button class="submit">Submit</button>
+        <input class="username-input" placeholder="Enter User Name...">
+        <button class="submit-username">Submit</button>
         </div>
 
         <div class="main-view" style="overflow-x: scroll">
             
         </div>
 
-        <script type="text/template" id="printed-message-template">
-          <div class="message-wrapper">
-                <div class="user-name"> <%= username %> </div>
-                <div class="user-message"> <%= messageText %> </div>
-                <div class="time-stamp"> <%= messageDate %> </div>
-            </div>
-        </script>
+        
 
         <div class="enter-message-container">
         <input class="enter-message" placeholder="Enter Message Here"></input>
@@ -57,11 +51,19 @@
         <br>
         <br>
         <br>    
-
+        <script type="text/template" id="printed-message-template">
+          <div class="message-wrapper">
+                <div class="user-name"> <%= username %> </div>
+                <div class="user-message"> <%= messageText %> </div>
+                <div class="time-stamp"> <%= messageDate %> </div>
+            </div>
+        </script>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
+        <script src="bower_components/backbone/backbone.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -76,6 +78,8 @@
         </script>
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/printed-message-view.js"></script>
+        <script src="scripts/message-model.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
