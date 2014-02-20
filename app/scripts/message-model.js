@@ -3,10 +3,10 @@ var Message = Backbone.Model.extend({
     idAttribute: "_id",
 
     defaults: {
-    username: 'string',
+    username: $('#username-inpupt').val(),
     messageText: '-default message-',
-    messageDate: '-default date-', //use underscore's 'now'
-    appId: 'ChipHatApp' //our team name
+    messageDate: _.now,
+    appId: 'ChipHatApp'
     options: '' //optional additional parameters
 
     }
@@ -22,4 +22,5 @@ var MessagesCollection = Backbone.Collection.extend({
     // $.get('/collections/contacts', function(result){
     //    console.table(result);
     // })
-})
+});
+
