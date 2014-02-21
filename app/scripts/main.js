@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+    //currentTime = new Date($.now());
+    //var renderedTime = currentTime.toLocaleString();
+
+
     //app kickoff!
     window.messages = new MessagesCollection(); //make the messages collection
 
@@ -23,9 +27,14 @@ $(document).ready(function() {
         //on enter keypress, so long as the input isn't empty
         if(event.which == 13 && $(this).val() != '') {
 
+        currentTime = new Date($.now());
+        var renderedTime = currentTime.toLocaleString();
+
         var newChatMessage = new Message({
             messageText: $('.enter-message').val(),
-            username: $('.hidden-welcome').text()
+            username: $('.hidden-welcome').text(),
+            messageDate: renderedTime, 
+
             //everything else is determined by default model values
         })
 
@@ -47,6 +56,8 @@ $(document).ready(function() {
         $('.username-input').val('');
         $('.hidden-welcome').html(username);
     })
+
+
 
 
 }) // ------- end $(document).ready ------
