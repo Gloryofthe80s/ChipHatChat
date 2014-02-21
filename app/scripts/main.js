@@ -4,10 +4,7 @@ $(document).ready(function() {
         messages.fetch({
             success: function(){
                 console.log('standardFetch has run!')
-                $('.main-view').html('')
-                messages.each(function(item){
-                new PrintedMessage({model: item})
-                })
+
             },
             error: function(){
                 console.log('Error with messages.fetch!')
@@ -17,6 +14,11 @@ $(document).ready(function() {
 
     //app kickoff!
     window.messages = new MessagesCollection(); //make the messages collection
+
+    messages.on('add',function(newMessage){
+        console.log('ADD EVENT!')
+        new PrintedMessage({model: newMessage})
+    })
 
     //page load get all previous chats loaded into page
     standardFetch();
@@ -29,14 +31,10 @@ $(document).ready(function() {
         //on enter keypress, so long as the input isn't empty
         if(event.which == 13 && $(this).val() != '') {
 
-        currentTime = new Date($.now());
-        var renderedTime = currentTime.toLocaleString();
-
         var newChatMessage = new Message({
             messageText: $('.enter-message').val(),
             username: $('.hidden-welcome').text(),
-            messageDate: renderedTime,
-
+            messageDate: $.now()
             //everything else is determined by default model values
         })
 
@@ -49,6 +47,8 @@ $(document).ready(function() {
         //save it
         newChatMessage.save();
         $('.enter-message').val('')
+
+        standardFetch();
 
         }
     });

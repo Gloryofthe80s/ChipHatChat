@@ -5,7 +5,6 @@ var Message = Backbone.Model.extend({
     defaults: {
     username: '-default name-',
     messageText: '-default message-',
-    messageDate: '-no date-',
     appId: 'ChipHatApp',
     options: { } //optional additional parameters
 
@@ -14,6 +13,8 @@ var Message = Backbone.Model.extend({
 
 var MessagesCollection = Backbone.Collection.extend({
     model: Message,
+
+    comparator: 'messageDate',
 
     url: 'http://tiny-pizza-server.herokuapp.com/collections/messages'
 
