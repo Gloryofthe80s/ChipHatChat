@@ -6,8 +6,8 @@ var Message = Backbone.Model.extend({
     username: '-default name-',
     messageText: '-default message-',
     appId: 'ChipHatApp',
-    options: { } //optional additional parameters
-
+    options: { }, //optional additional parameters
+    messageDate: 0
     }
 });
 

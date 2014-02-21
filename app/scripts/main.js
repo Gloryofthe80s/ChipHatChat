@@ -41,14 +41,11 @@ $(document).ready(function() {
         //add it to the collection
         messages.add(newChatMessage);
 
-        //render the new obj
-        new PrintedMessage({model: newChatMessage});
+        //this will render because of the 'add' listener on the collection
 
         //save it
         newChatMessage.save();
         $('.enter-message').val('')
-
-        standardFetch();
 
         }
     });
