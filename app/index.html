@@ -54,7 +54,7 @@
         <script type="text/template" id="printed-message-template">
           <div class="message-wrapper">
                 <div class="user-name"> <%= username %> </div>
-                <div class="time-stamp"> <%= messageDate %> </div>
+                <div class="time-stamp"> <%= (new Date( messageDate )).toLocaleString() %> </div>
                 <div class="user-message"> <%= messageText %> </div>
             </div>
         </script>
