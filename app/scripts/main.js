@@ -1,26 +1,28 @@
 $(document).ready(function() {
 
-    //currentTime = new Date($.now());
-    //var renderedTime = currentTime.toLocaleString();
-
+    function standardFetch() {
+        messages.fetch({
+            success: function(){
+                console.log('standardFetch has run!')
+                $('.main-view').html('')
+                messages.each(function(item){
+                new PrintedMessage({model: item})
+                })
+            },
+            error: function(){
+                console.log('Error with messages.fetch!')
+            }
+        })
+    }
 
     //app kickoff!
     window.messages = new MessagesCollection(); //make the messages collection
 
-    messages.fetch({
-        success: function(){
-          messages.each(function(item){
-            new PrintedMessage({model: item})
-          })
-        },
-        error: function(){
-            console.log('Error with messages.fetch!')
-        }
-    })
+    //page load get all previous chats loaded into page
+    standardFetch();
 
-    //------ the 'every second' fetch loop ------
-    // no idea how to implement that :D
-
+    //fetch repeatedly every second for new messages
+    var timeoutID = window.setInterval(standardFetch, 1000);
 
     // ------- WHEN A CHAT MESSAGE IS SUBMITTED ------
     $('.enter-message').on('keypress', function(event) {
@@ -33,7 +35,7 @@ $(document).ready(function() {
         var newChatMessage = new Message({
             messageText: $('.enter-message').val(),
             username: $('.hidden-welcome').text(),
-            messageDate: renderedTime, 
+            messageDate: renderedTime,
 
             //everything else is determined by default model values
         })
@@ -61,3 +63,13 @@ $(document).ready(function() {
 
 
 }) // ------- end $(document).ready ------
+
+
+
+
+
+
+
+
+
+
